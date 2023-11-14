@@ -1,5 +1,5 @@
 
-import React ,{useEffect}from 'react'
+import {useEffect}from 'react'
 import { StickyNavbar } from '../components/StickyNavbar';
 import { MainCard } from '../components/Card';
 import { Sidebar } from '../components/Sidebar';

@@ -15,6 +15,13 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
  
 export function TableWithStripedRows() {
+
+  useEffect(() => {
+    const token=localStorage.getItem("token");
+    if(!token){
+        window.location.href="/login";
+    }
+}, [])
   const [allUrl, setAllUrl] = useState([]);
   const [loading, setLoading] = useState(true);
 

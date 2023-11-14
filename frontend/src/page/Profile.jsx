@@ -8,7 +8,6 @@ const Profile = () => {
   const [lastname, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [isEditMode, setIsEditMode] = useState(false); // State to track edit mode
 
    const userDetail=async()=>{
@@ -37,6 +36,12 @@ const Profile = () => {
       userDetail();
     }, []);
 
+    useEffect(() => {
+      const token=localStorage.getItem("token");
+      if(!token){
+          window.location.href="/login";
+      }
+  }, [])
   const handleEditClick = () => {
     if (isEditMode) {
       // Update user details
