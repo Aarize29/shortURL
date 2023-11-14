@@ -20,7 +20,7 @@ export function SimpleFooter() {
         <li>
           <Typography
             as="a"
-            href="#"
+            href="https://github.com/Aarize29/shortURL"
             color="blue-gray"
             className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
           >
