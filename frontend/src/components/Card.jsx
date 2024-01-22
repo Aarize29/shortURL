@@ -9,6 +9,8 @@ import {
     import { useState } from "react";
     import { BiCopy } from "react-icons/bi";
    
+
+    const PORT_BACKEND='https://backend-shorturl-nlmc.onrender.com'
   export function MainCard() {
     const [longurl, setLongurl] = useState("");
     const [shorturl, setShorturl] = useState("");
@@ -32,7 +34,7 @@ import {
             setOpen(true);
             return;
           }
-          const res=await fetch("http://localhost:3000/shorturl",{
+          const res=await fetch(`${PORT_BACKEND}/shorturl`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -54,7 +56,7 @@ import {
     }
 
     const handleCopy=()=>{
-        navigator.clipboard.writeText(`http://localhost:3000/${shorturl}`);
+        navigator.clipboard.writeText(`${PORT_BACKEND}/${shorturl}`);
         setCopyalert(true);
         }
 
@@ -135,7 +137,7 @@ import {
             </Typography>
             <Input
               size="lg"
-              value={`http://localhost:3000/${shorturl}`}
+              value={`${PORT_BACKEND}/${shorturl}`}
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",

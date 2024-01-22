@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -14,6 +12,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Alert } from '@material-tailwind/react';
 
+const PORT_BACKEND='https://backend-shorturl-nlmc.onrender.com'
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -48,7 +47,7 @@ export default function Signup() {
       return;
     }
 
-    const req=await fetch("http://localhost:3000/register",{
+    const req=await fetch(`${PORT_BACKEND}/register`,{
       method:"POST",
       headers:{
           "Content-Type":"application/json"

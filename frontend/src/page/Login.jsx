@@ -12,7 +12,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider} from '@mui/material/styles';
 import { Alert } from '@material-tailwind/react';
 
-
+const PORT_BACKEND='https://backend-shorturl-nlmc.onrender.com'
 
 function Copyright(props) {
 
@@ -41,7 +41,7 @@ export default function Login() {
     //   password: data.get('password'),
     // });
 
-    const req=await fetch("http://localhost:3000/login",{
+    const req=await fetch(`${PORT_BACKEND}/login`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json"

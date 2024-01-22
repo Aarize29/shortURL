@@ -3,6 +3,7 @@ import { StickyNavbar } from '../components/StickyNavbar';
 import { Sidebar } from '../components/Sidebar';
 import { Input, Typography, Button } from '@material-tailwind/react'; // Import Button component
 
+const PORT_BACKEND='https://backend-shorturl-nlmc.onrender.com'
 const Profile = () => {
   const [firstname, setFirstName] = useState('');
   const [lastname, setLastName] = useState('');
@@ -13,7 +14,7 @@ const Profile = () => {
    const userDetail=async()=>{
       const token=localStorage.getItem("token");
       try {
-        const res=await fetch("http://localhost:3000/user",{
+        const res=await fetch(`${PORT_BACKEND}/user`,{
           method:"GET",
           headers:{
             "Content-Type":"application/json",
@@ -56,7 +57,7 @@ const Profile = () => {
   const handleUpdate=async()=>{
     const token=localStorage.getItem("token");
     try {
-      const res=await fetch("http://localhost:3000/user",{
+      const res=await fetch(`${PORT_BACKEND}/user`,{
         method:"PUT",
         headers:{
           "Content-Type":"application/json",

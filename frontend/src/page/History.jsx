@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import {useState,useEffect} from "react";
 import { Card, Spinner, Typography } from "@material-tailwind/react";
 import { StickyNavbar } from "../components/StickyNavbar";
 import { Sidebar } from "../components/Sidebar";
@@ -6,7 +6,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 
 
-
+const PORT_BACKEND='https://backend-shorturl-nlmc.onrender.com'
  
  
 
@@ -28,7 +28,7 @@ export function TableWithStripedRows() {
   const getallurl = async () => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://localhost:3000/api/urls', {
+      const res = await fetch(`${PORT_BACKEND}/api/urls`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -53,14 +53,14 @@ export function TableWithStripedRows() {
   const TABLE_ROWS = allUrl.map((url) => ({
     url: url.longURL,
     detail: url.detail,
-    shorturl: `http://localhost:3000/${url.shortURL}`,
+    shorturl: `${PORT_BACKEND}/${url.shortURL}`,
     date: url.date.slice(0, 10),
   }));
 
   const handleDelete = async (e) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://localhost:3000/api/urls/${e.target.id}`, {
+      const res = await fetch(`${PORT_BACKEND}/api/urls/${e.target.id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
