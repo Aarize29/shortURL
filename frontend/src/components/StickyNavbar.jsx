@@ -35,7 +35,7 @@ export function StickyNavbar() {
   }
  
   const navList = (
-    <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="mt-2  flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       
       <Typography
         as="li"
@@ -59,6 +59,7 @@ export function StickyNavbar() {
           Profile
         </Link>
       </Typography>
+
     </ul>
   );
  
@@ -150,8 +151,24 @@ export function StickyNavbar() {
         </div>
         <Collapse open={openNav}>
           {navList}
-          <div className="flex items-center gap-x-1">
-            <Link to="/signup">
+          <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="px-2 py-1.5 font-normal hover:bg-[#e5e5e5]  rounded-md"
+      >
+        <Link to="/history" className="flex items-center">
+          History
+        </Link>
+      </Typography>
+          {isLoggedin?<div className="flex items-center gap-x-1">
+            
+            <Button fullWidth variant="gradient" size="sm" onClick={handlelogout}>
+              <span>Logout</span>
+            </Button>
+            
+          </div>:<div className="flex items-center gap-x-1">
+            <Link to="/signup" >
             <Button fullWidth variant="text" size="sm" className="">
               <span>Register</span>
             </Button>
@@ -161,7 +178,7 @@ export function StickyNavbar() {
               <span>Sign in</span>
             </Button>
             </Link>
-          </div>
+          </div>}
         </Collapse>
       </Navbar>
       {/* <div className="mx-auto max-w-screen-md py-12">
